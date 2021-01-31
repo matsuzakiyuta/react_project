@@ -1,20 +1,19 @@
-import './App.css';
-import { Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import List from './List';
+import Form from './Form';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Animation_management</h1>
-      </header>
-      <body className="App-body">
-        <Button className="btn btn-demo">アニメ一覧</Button>
-        <Button className="btn btn-warning">アニメ追加</Button>
-        <Button className="btn btn-danger">アニメ削除</Button>
-      </body>
-    </div>
-  );
+class App extends React.Component {
+  render(){
+    return(
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={List} />　
+          <Route exact path="/anime/add" component={Form} />
+        </Switch>
+      </BrowserRouter>
+    );
+  };
 }
 
 export default App;
